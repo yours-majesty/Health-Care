@@ -10,15 +10,16 @@ const patientRouter = require('./src/routes/patientRouter');
 const { verifyAccessToken } = require('./src/config/tokenGenerator');
 const { notFoundMiddleware, defaultErrorHandler } = require('./src/middlewares/error');
 const cookieParser = require('cookie-parser');
+require('dotenv').config();
 
 
 
 // Environment variables
 const PORT = process.env.PORT || 3001;
-const CONNECTION_STRING = "mongodb+srv://dinkarhimanshu78:PyN3cCNG7KtRoMAf@relaxify.wndjgj8.mongodb.net/?retryWrites=true&w=majority&appName=Relaxify";
+
 
 // Connect the database
-db.connect(CONNECTION_STRING)
+db.connect(process.env.CONNECTION_STRING)
   .then(() => {
     console.log("Database connected.");
   })
