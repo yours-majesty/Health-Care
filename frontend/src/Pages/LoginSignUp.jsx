@@ -6,10 +6,11 @@ import { ToastContainer, toast } from 'react-toastify';
 function LoginSignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const backendUrl=import.meta.env.VITE_BACKEND_URL;
 
   async function handleLogin(e) {
     e.preventDefault();
-    const response = await fetch("http://localhost:3001/api/v1/u/login", {
+    const response = await fetch(`${backendUrl}/api/v1/u/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
